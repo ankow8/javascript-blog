@@ -39,7 +39,7 @@ const titleClickHandler = function(event){
 
   /* find the correct article using the selector (value of 'href' attribute) */
 
-  const targetArticle = document.querySelector('.posts #article-5'); // nie wiem jaki dać selektor aby znalazło <article> o id identycznym jak w stałej articleSelector, dałem przykładowo find and #article-5, dla zrobienia kolejnego punktu
+  const targetArticle = document.querySelector(articleSelector); // nie wiem jaki dać selektor aby znalazło <article> o id identycznym jak w stałej articleSelector, dałem przykładowo #article-5, dla zrobienia kolejnego punktu
 
   console.log('targetArticle: ', targetArticle);
 
