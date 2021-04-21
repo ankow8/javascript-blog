@@ -56,12 +56,17 @@ for(let link of links){
 }
 
 const optArticleSelector = '.post',
-      optTitleSelector = '.post-title',
-      optTitleListSelector = '.titles';
+  optTitleSelector = '.post-title',
+  optTitleListSelector = '.titles';
 
 function generateTitleLinks(){
 
   /* remove contents of titleList */
+
+  const titleList = document.querySelector(optTitleListSelector).innerHTML = '';
+
+  console.log('titleList: ', titleList);
+
 
   /* for each title */
 
