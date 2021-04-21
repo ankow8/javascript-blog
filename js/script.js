@@ -9,7 +9,7 @@ const titleClickHandler = function(event){
   const clickedElement = this;
   console.log('Link was clicked!');
 
-  /* [DONE] remove class 'active' from all article links  */
+  /* remove class 'active' from all article links  */
 
   const activeLinks = document.querySelectorAll('.titles a.active');
 
@@ -17,13 +17,13 @@ const titleClickHandler = function(event){
     activeLink.classList.remove('active');
   }
 
-  /* [IN PROGRESS] add class 'active' to the clicked link */
+  /* add class 'active' to the clicked link */
 
   clickedElement.classList.add('active');
 
   console.log('clickedElement:', clickedElement);
 
-  /* [DONE] remove class 'active' from all articles */
+  /* remove class 'active' from all articles */
 
   const activeArticles = document.querySelectorAll('.posts article.active');
 
@@ -39,7 +39,7 @@ const titleClickHandler = function(event){
 
   /* find the correct article using the selector (value of 'href' attribute) */
 
-  const targetArticle = document.querySelector(articleSelector); // nie wiem jaki dać selektor aby znalazło <article> o id identycznym jak w stałej articleSelector, dałem przykładowo #article-5, dla zrobienia kolejnego punktu
+  const targetArticle = document.querySelector(articleSelector);
 
   console.log('targetArticle: ', targetArticle);
 
@@ -54,3 +54,27 @@ const links = document.querySelectorAll('.titles a');
 for(let link of links){
   link.addEventListener('click', titleClickHandler);
 }
+
+const optArticleSelector = '.post',
+      optTitleSelector = '.post-title',
+      optTitleListSelector = '.titles';
+
+function generateTitleLinks(){
+
+  /* remove contents of titleList */
+
+  /* for each title */
+
+  /* get the article id */
+
+  /* find the title element */
+
+  /* get the title from the title element */
+
+  /* create HTML of the link */
+
+  /* insert link into titleList */
+
+}
+
+generateTitleLinks();
