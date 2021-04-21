@@ -71,16 +71,22 @@ function generateTitleLinks(){
 
   const articles = document.querySelectorAll(optArticleSelector);
 
-  for(const article of articles){
+  let html = '';
+
+  for(let article of articles){
 
     /* get the article id */
 
     const articleId = article.getAttribute('id');
 
+    console.log('articleId: ', articleId);
+
     /* find the title element */
     /* get the title from the title element */
 
     const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+
+    console.log('articleTitle: ', articleTitle);
 
     /* create HTML of the link */
 
@@ -90,7 +96,15 @@ function generateTitleLinks(){
 
     /* insert link into titleList */
 
+    /*titleList.innerHTML = titleList.innerHTML + linkHTML;*/
+    /*titleList.insertAdjacentHTML('afterend', linkHTML);*/
+    html = html + linkHTML;
+
+    /*console.log('zmienna html: ', html);*/
+
   }
+
+  titleList.innerHTML = html;
 
 }
 
