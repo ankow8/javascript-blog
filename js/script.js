@@ -6,7 +6,7 @@
 });*/
 
 const titleClickHandler = function(event){
-  const clickedElement = this;
+  const clickedElement = this;  //czym dokladnie jest this? Jaka pelni tutaj funkcje? Czy dokladniejsze poznanie nastapi w kolejnych modulach?
   console.log('Link was clicked!');
 
   /* remove class 'active' from all article links  */
@@ -14,7 +14,7 @@ const titleClickHandler = function(event){
   const activeLinks = document.querySelectorAll('.titles a.active');
 
   for(let activeLink of activeLinks){
-    activeLink.classList.remove('active');
+    activeLink.classList.remove('active');  //skad przegladarka wie czym jest activeLink, skoro zmienna activeLink nie jest zadeklarowana?
   }
 
   /* add class 'active' to the clicked link */
@@ -28,7 +28,7 @@ const titleClickHandler = function(event){
   const activeArticles = document.querySelectorAll('.posts article.active');
 
   for(let activeArticle of activeArticles){
-    activeArticle.classList.remove('active');
+    activeArticle.classList.remove('active'); //skad przegladarka wie czym jest activeLink, skoro zmienna activeLink nie jest zadeklarowana?
   }
 
   /* get 'href' attribute from the clicked link */
