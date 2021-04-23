@@ -11,6 +11,7 @@
     "test": "npm-run-all test:*",
     "test:html": "html-validate *.html",
     "test:js": "eslint js/",
+    "test:scss": "stylelint sass/",
     "build": "npm-run-all build:* test:*",
     "build:sass": "node-sass --output-style compact -o css sass",
     "build:autoprefixer": "postcss css/*.css --use autoprefixer -d css",
