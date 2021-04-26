@@ -177,17 +177,20 @@ function generateTags(){
 
 generateTags();
 
-function tagClickHandler(event){
+const tagClickHandler = function(event){
 
   /* prevent default action for this event */
 
-
+  event.preventDefault();
 
   /* make new constant named "clickedElement" and give it the value of "this" */
 
-
+  const clickedElement = this;
+  console.log('Tag się kliknął!');
 
   /* make a new constant "href" and read the attribute "href" of the clicked element */
+
+  const href = clickedElement.getAttribute('href');
 
   /* make a new constant "tag" and extract tag from the "href" constant */
 
@@ -210,7 +213,7 @@ function tagClickHandler(event){
   /* execute function "generateTitleLinks" with article selector as argument */
 }
 
-tagClickHandler();
+//tagClickHandler();
 
 function addClickListenersToTags(){
   /* find all links to tags */
