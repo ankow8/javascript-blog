@@ -43,7 +43,7 @@ const titleClickHandler = function(event){
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles',
-  optArticleTagsSelector = '.post-tags .list';
+  optArticleTagsSelector = '.post-tags .list',
   optArticleAuthorSelector = '.post-author';
 
 function generateTitleLinks(customSelector = ''){
@@ -102,30 +102,24 @@ function generateTags(){
 
   /* START LOOP: for every article: */
   for(let article of articles){
-    //console.log('article: ', article);
 
     /* find tags wrapper */
     const tagsWrapper = article.querySelector(optArticleTagsSelector);
-    //console.log('articleList: ', articleList);
 
     /* make html variable with empty string */
     let html = '';
 
     /* get tags from data-tags attribute */
     const articleTags = article.getAttribute('data-tags');
-    //console.log('articleTags: ', articleTags);
 
     /* split tags into array */
     const articleTagsArray = articleTags.split(' ');
-    //console.log(articleTagsArray);
 
     /* START LOOP: for each tag */
     for(let tag of articleTagsArray){
-      //console.log('tag: ', tag);
 
       /* generate HTML of the link */
-      const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>'
-      //console.log('tagHTML: ', tagHTML);
+      const tagHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li>';
 
       /* add generated code to html variable */
       html = html + tagHTML;
@@ -154,7 +148,6 @@ function tagClickHandler(event){
 
   /* make a new constant "href" and read the attribute "href" of the clicked element */
   const href = clickedElement.getAttribute('href');
-  //const href = '#tag-tutorials';
   console.log('href: ', href);
 
   /* make a new constant "tag" and extract tag from the "href" constant */
@@ -212,23 +205,36 @@ addClickListenersToTags();
 function generateAuthors (){
 
   /* find all articles */
+  const articles = document.querySelectorAll(optArticleSelector);
 
   /* START LOOP: for every article: */
+  for(let article of articles){
 
-    /* find tags wrapper */
+    /* find authors wrapper */
+    const authorWrapper = article.querySelector(optArticleAuthorSelector);
+    console.log('authorWrapper: ', authorWrapper);
 
     /* make html variable with empty string */
+    let html = '';
 
-    /* get tags from data-tags attribute */
+    /* get author from data-author attribute */
+    const author = article.getAttribute('data-author');
 
     /* generate HTML of the link */
+    const authorHTML = '<p class="post-author">by ' + author + '</p>';
+    console.log('authorHTML: ', authorHTML);
 
     /* add generated code to html variable */
+    html = html + authorHTML;
 
     /* insert HTML of all the links into the tags wrapper */
+    authorWrapper.innerHTML = html;
 
   /* END LOOP: for every article: */
+  }
 }
+
+generateAuthors();
 
 function addClickListenersToAuthors(){
 
