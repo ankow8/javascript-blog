@@ -154,47 +154,51 @@ function tagClickHandler(event){
   console.log('Tag się kliknął!');
 
   /* make a new constant "href" and read the attribute "href" of the clicked element */
-  const href = clickedElement.getAttribute('href');
+  //const href = clickedElement.getAttribute('href');                           //do poprawienia, wstawilem przykladowa wartosc na chwile
+  const href = '#tag-tutorials';
   console.log('href: ', href);
 
   /* make a new constant "tag" and extract tag from the "href" constant */
-  //const tag = href.replace('#tag-', '');
-  //console.log('tag: ', tag);
+  const tag = href.replace('#tag-', '');
+  console.log('tag: ', tag);
 
   /* find all tag links with class active */
-
-
+  const activeTags = document.querySelectorAll('a.active[href^="#tag-"]');      //do poprawienia
+  console.log('activeTag: ', activeTag);
 
   /* START LOOP: for each active tag link */
+  for(let activeTag of activeTags){
 
     /* remove class active */
+    activeTag.classList.remove('active');
 
   /* END LOOP: for each active tag link */
+  }
 
   /* find all tag links with "href" attribute equal to the "href" constant */
+  const tagLinks = document.querySelector(activeTags)                           //do poprawienia
 
   /* START LOOP: for each found tag link */
+  for(let tagLink of tagLinks){
 
     /* add class active */
+    tagLink.classList.add('active');
 
   /* END LOOP: for each found tag link */
-
+  }
   /* execute function "generateTitleLinks" with article selector as argument */
-
-  //generateTitleLinks('[data-tags~="' + tag + '"]');
+  generateTitleLinks('[data-tags~="' + tag + '"]');
 
 }
-
-//tagClickHandler();
 
 function addClickListenersToTags(){
 
   /* find all links to tags */
-  const tagsLink = document.querySelectorAll(optArticleTagsSelector);
+  const tagLinks = document.querySelectorAll(optArticleTagsSelector);
   //console.log('tagsLinks: ', tagsLinks);
 
   /* START LOOP: for each link */
-  for(let tagLink of tagsLink){
+  for(let tagLink of tagLinks){
 
     /* add tagClickHandler as event listener for that link */
     tagLink.addEventListener('click', tagClickHandler);
