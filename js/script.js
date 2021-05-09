@@ -105,7 +105,7 @@ function generateTags(){
     //console.log('article: ', article);
 
     /* find tags wrapper */
-    const articleList = article.querySelector(optArticleTagsSelector);
+    const tagsWrapper = article.querySelector(optArticleTagsSelector);
     //console.log('articleList: ', articleList);
 
     /* make html variable with empty string */
@@ -134,7 +134,7 @@ function generateTags(){
     }
 
     /* insert HTML of all the links into the tags wrapper */
-    articleList.innerHTML = html;
+    tagsWrapper.innerHTML = html;
     //console.log('articleList.innerHTML: ', );
 
   /* END LOOP: for every article: */
@@ -154,8 +154,8 @@ function tagClickHandler(event){
   console.log('Tag się kliknął!');
 
   /* make a new constant "href" and read the attribute "href" of the clicked element */
-  //const href = clickedElement.getAttribute('href');                           //do poprawienia, wstawilem przykladowa wartosc na chwile
-  const href = '#tag-tutorials';
+  const href = clickedElement.getAttribute('href');                             //do poprawienia, nie wynajduje, jest pusto
+  //const href = '#tag-tutorials';
   console.log('href: ', href);
 
   /* make a new constant "tag" and extract tag from the "href" constant */
@@ -176,7 +176,7 @@ function tagClickHandler(event){
   }
 
   /* find all tag links with "href" attribute equal to the "href" constant */
-  const tagLinks = document.querySelector(activeTags)                           //do poprawienia
+  const tagLinks = document.querySelectorAll('a[href="' + href + '"]');         //do poprawienia
 
   /* START LOOP: for each found tag link */
   for(let tagLink of tagLinks){
