@@ -120,7 +120,23 @@ body {
 
 .authors {
   li {
+    display: inline-block;
     margin-bottom: 12px;
+  }
+  .tag-size-5 {
+    font-size: 32px;
+    text-decoration: none;
+    color: #0e3a57;
+  }
+  .tag-size-3 {
+    font-size: 24px;
+    text-decoration: none;
+    color: #0978ab;
+  }
+  .tag-size-1 {
+    font-size: 16px;
+    text-decoration: none;
+    color: #07c1ff;
   }
 }
 
