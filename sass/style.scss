@@ -92,6 +92,30 @@ body {
   }
 }
 
+/* Tags */
+
+.tags {
+  li {
+    display: inline-block;
+    margin: 2px 2px 0 0;
+  }
+  .tag-size-5 {
+    font-size: 32px;
+    text-decoration: none;
+    color: #900734;
+  }
+  .tag-size-3 {
+    font-size: 24px;
+    text-decoration: none;
+    color: #d90124;
+  }
+  .tag-size-1 {
+    font-size: 16px;
+    text-decoration: none;
+    color: #fd5726;
+  }
+}
+
 /* Authors */
 
 .authors {
