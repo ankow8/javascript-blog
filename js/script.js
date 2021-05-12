@@ -5,6 +5,10 @@
   console.log('links:', links);
 });*/
 
+const templates = {
+  articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML);
+}
+
 const titleClickHandler = function(event){
   event.preventDefault();
   const clickedElement = this;  //czym dokladnie jest this? Jaka pelni tutaj funkcje? Czy dokladniejsze poznanie nastapi w kolejnych modulach?
@@ -75,8 +79,10 @@ function generateTitleLinks(customSelector = ''){
     //console.log('articleTitle: ', articleTitle);
 
     /* create HTML of the link */
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    //const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
     //console.log('kod HTML: ', linkHTML);
+    const linkHTMLData = {id: articleId, title: articleTitle};
+    const linkHTML = templates.articleLink(linkHTMLData);
 
     /* insert link into titleList */
     //titleList.innerHTML = titleList.innerHTML + linkHTML;
