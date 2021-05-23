@@ -15,14 +15,14 @@ const templates = {
 
 const titleClickHandler = function(event){
   event.preventDefault();
-  const clickedElement = this;  //czym dokladnie jest this? Jaka pelni tutaj funkcje? Czy dokladniejsze poznanie nastapi w kolejnych modulach?
+  const clickedElement = this;
   console.log('Link was clicked!');
 
   /* remove class 'active' from all article links  */
   const activeLinks = document.querySelectorAll('.titles a.active');
 
   for(let activeLink of activeLinks){
-    activeLink.classList.remove('active');  //skad przegladarka wie czym jest activeLink, skoro zmienna activeLink nie jest zadeklarowana?
+    activeLink.classList.remove('active');
   }
 
   /* add class 'active' to the clicked link */
@@ -33,11 +33,11 @@ const titleClickHandler = function(event){
   const activeArticles = document.querySelectorAll('.posts article.active');
 
   for(let activeArticle of activeArticles){
-    activeArticle.classList.remove('active'); //skad przegladarka wie czym jest activeLink, skoro zmienna activeLink nie jest zadeklarowana?
+    activeArticle.classList.remove('active');
   }
 
   /* get 'href' attribute from the clicked link */
-  const articleSelector = clickedElement.getAttribute('href');
+  const articleSelector = clickedElement.getAttribute('href');  // czy przy wyszukiwaniu elementu DOM (w kolejnych krokach) po zawartosci href pomija znak "#"?
   //console.log('articleSelector: ', articleSelector);
 
   /* find the correct article using the selector (value of 'href' attribute) */
@@ -79,7 +79,7 @@ function generateTitleLinks(customSelector = ''){
 
     /* find the title element */
     /* get the title from the title element */
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;     // czy podanie metody innerHTML bez niczego pobiera tresc HTML ">...(tresc)...<"?
     //console.log('articleTitle: ', articleTitle);
 
     /* create HTML of the link */
@@ -211,9 +211,10 @@ function generateTags(){
     console.log('tagLinkHTML: ', tagLinkHTML);*/
     allTagsData.tags.push({
       tag: tag,
-      count: allTags[tag],
+      count: allTags[tag],        // jak dziala zliczanie wszystkich takich samych tagow?
       classname: calculateTagClass(allTags[tag], tagsParams)
     });
+    console.log('allTagsData: ', allTagsData);
 
 
     //allTagsHTML +=
@@ -316,7 +317,7 @@ function generateAuthors (){
     const author = article.getAttribute('data-author');
 
     /* split and lower case author names into array */
-    //const articleAuthorNameArray = author.toLowerCase();//dobrze byloby usunac spacje w linku za pomoca replace(' '), ale nie dziala odpowiednio
+    //const articleAuthorNameArray = author.toLowerCase();//dobrze byloby usunac spacje w linku za pomoca replace(' '), ale nie dziala odpowiednio // już nieistotne, myslalem ze linki moga byc tylko z malych liter i bez spacji
     //console.log('articleAuthorNameArray: ', articleAuthorNameArray);
 
     /* generate HTML of the link */
@@ -373,6 +374,7 @@ function generateAuthors (){
   /*[NEW] add HTML from allTagsHTML to tagList */
   //authorList.innerHTML = allAuthorsHTML;
   authorList.innerHTML = templates.authorCloudLink(allAuthorsData);
+  console.log('cloud', authorList);
 
 }
 
